@@ -7,7 +7,13 @@ def recipe_batches(recipe, ingredients):
   if set(recipe.keys()) != set(ingredients.keys()):
     return 0
   #loop through each ingredient of the recipe, and record the quotient of amount of this ingredient in ingredients dict and recipe dict
-  batches = {i: int(ingredients[i]/recipe[i]) if ingredients[i] >= recipe[i] else 0 for i in recipe.keys()}
+  # batches = {i: int(ingredients[i]/recipe[i]) if ingredients[i] >= recipe[i] else 0 for i in recipe.keys()}
+  batches = {}
+  for i in recipe.keys():
+    if ingredients[i] >= recipe[i]:
+      batches[i] = int(ingredients[i]/recipe[i])
+    else:
+      batches[i] = 0
   #return the minimum batches 
   return min(batches.values())
 
