@@ -3,8 +3,9 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  #if recipe and ingredients don't contain the same keys, then return 0
-  if set(recipe.keys()) != set(ingredients.keys()):
+  #check if ingredients dict container all ingredients in recipe dict
+  notIncluded = [i for i in recipe.keys() if i not in ingredients.keys()]
+  if len(notIncluded)>0:
     return 0
   #loop through each ingredient of the recipe, and record the quotient of amount of this ingredient in ingredients dict and recipe dict
   # batches = {i: int(ingredients[i]/recipe[i]) if ingredients[i] >= recipe[i] else 0 for i in recipe.keys()}
