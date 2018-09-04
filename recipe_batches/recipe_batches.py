@@ -11,10 +11,7 @@ def recipe_batches(recipe, ingredients):
   # batches = {i: int(ingredients[i]/recipe[i]) if ingredients[i] >= recipe[i] else 0 for i in recipe.keys()}
   batches = {}
   for i in recipe.keys():
-    if ingredients[i] >= recipe[i]:
-      batches[i] = int(ingredients[i]/recipe[i])
-    else:
-      batches[i] = 0
+    batches[i] = int(ingredients[i]/recipe[i])
   #return the minimum batches 
   return min(batches.values())
 
